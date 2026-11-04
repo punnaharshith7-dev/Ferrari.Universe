@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cinzel", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Overwrite standard palette colors to conform exactly to the Sleek Interface theme */
+  --color-black: #050505;
+  --color-neutral-950: #0a0a0a;
+  --color-neutral-900: #121212;
+  --color-neutral-800: #1a1a1a;
+  
+  --color-red-500: #D40000;
+  --color-red-600: #b80000;
+  --color-red-700: #990000;
+  
+  --color-brand-red: #D40000;
+  --color-brand-dark: #050505;
+  --color-brand-light: #F5F5F5;
+}
+
+/* Base style resets to match Sleek theme defaults */
+body {
+  background-color: #050505;
+  color: #F5F5F5;
+}
+
+/* Custom premium transitions and scroll bar utilities */
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Premium translucent glass element layout */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(212, 0, 0, 0.3);
+}
+
+/* Page Fade In Animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom AI Analyzer Progress Loader keyframes */
+@keyframes infiniteLoading {
+  0% {
+    left: -40%;
+    width: 40%;
+  }
+  50% {
+    left: 40%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 20%;
+  }
+}
+
+.animate-infinite-loading {
+  animation: infiniteLoading 1.8s infinite ease-in-out;
+  position: relative;
+}
